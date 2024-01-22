@@ -4,7 +4,7 @@ const pug = require('pug');
 
 const app = express();
 
-const private_app_token = 'pat-eu1-e84e1a3c-26b8-4367-8327-58de429fd283';
+const private_app_token = 'pat-eu1-509b02b8-801c-45ee-b4dc-a2d3db0a59cb';
 
 app.get('/', async (req, res) => {
     const contactsEndpoint = 'https://api.hubspot.com/crm/v3/objects/contacts';
@@ -16,7 +16,7 @@ app.get('/', async (req, res) => {
         const response = await axios.get(contactsEndpoint, { headers });
         const contactsData = response.data;
 
-        res.render('index', { title: 'Hubspot Test', message: 'Banby', contacts: contactsData });
+        res.render('homepage', { title: 'Hubspot Test', message: 'Banby', contacts: contactsData });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
